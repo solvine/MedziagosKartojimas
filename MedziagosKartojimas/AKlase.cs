@@ -16,9 +16,9 @@ namespace MedziagosKartojimas
         {
             int suma = 0;
 
-            for (int i = 0; i < Name.Count(); i++)
+            foreach (var item in Name)
             {
-                suma += (int)Name[i] * a;
+                suma += (int)item * a;
             }
             return suma;
         }

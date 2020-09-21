@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,29 +9,34 @@ namespace MedziagosKartojimas
 {
     class BKlase : BaseClass, IZodisKitaip
     {
+        public char[] Balses { get; set; }
+        public char[] Priebalses { get; set; }
         public BKlase(string name) : base(name)
         {
-
+            Balses = new char[] { 'a', 'A', 'o', 'O', 'u', 'U', 'i', 'I', 'y', 'Y', 'e', 'E' };
+            Priebalses = new char[] { 'b','B', 'c', 'C', 'd', 'D', 'f', 'F', 'g', 'G', 'h', 'H', 'j', 'J', 'k', 'K', 'l', 'L',
+                'm', 'M', 'n', 'N', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 't', 'T', 'v', 'V', 'w', 'W', 'x', 'X', 'z', 'Z' };
         }
         public override int NameKodas(int a)
         {
             int suma = 0;
 
-            for (int i = 0; i < Name.Count(); i++)
+            foreach (var item in Name)
             {
-                suma += Name[i] - a;
+                suma += item - a;
             }
+
             return suma;
         }
 
         public override string NameMetodas()
         {
             string name = String.Empty;
-            char[] balses = new char[] { 'a', 'A', 'o', 'O', 'u', 'U', 'i', 'I', 'y', 'Y', 'e', 'E' };
+            
 
             for (int i = 0; i < Name.Count(); i++)
             {
-                if (balses.Contains(Name[i]))
+                if (Balses.Contains(Name[i]))
                 {
                     name += (int)Name[i];
                 }
@@ -45,22 +51,70 @@ namespace MedziagosKartojimas
 
         public string ZodisBeBalsiu()
         {
-            throw new NotImplementedException();
+            string zodis = "";
+
+            foreach (var item in Name)
+            {
+                if (!Balses.Contains(item))
+                {
+                    zodis += item;
+                }
+
+            }
+            return zodis;
         }
 
         public string ZodisBePriebalsiu()
         {
-            throw new NotImplementedException();
+            string zodis = "";
+
+            foreach (var item in Name)
+            {
+                if (!Priebalses.Contains(item))
+                {
+                    zodis += item;
+                }
+
+            }
+            return zodis;
         }
 
         public string ZodisSuPakeistomisBalsemis(char a)
         {
-            throw new NotImplementedException();
+            string zodis = "";
+
+            foreach (var item in Name)
+            {
+                if (Balses.Contains(item))
+                {
+                    zodis += a;
+                }
+                else
+                {
+                    zodis += item;
+                }
+
+            }
+            return zodis;
         }
 
         public string ZodisSuPakeistomisPriebalsemis(int a)
         {
-            throw new NotImplementedException();
+            string zodis = "";
+
+            foreach (var item in Name)
+            {
+                if (Priebalses.Contains(item))
+                {
+                    zodis += $"{a}";
+                }
+                else
+                {
+                    zodis += item;
+                }
+
+            }
+            return zodis;
         }
     }
 }
