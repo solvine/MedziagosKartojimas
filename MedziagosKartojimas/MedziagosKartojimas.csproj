@@ -46,6 +46,7 @@
     <Compile Include="AKlase.cs" />
     <Compile Include="BaseClass.cs" />
     <Compile Include="BKlase.cs" />
+    <Compile Include="CKlase.cs" />
     <Compile Include="IZodisKitaip.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
