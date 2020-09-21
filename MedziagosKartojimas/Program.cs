@@ -10,6 +10,19 @@ namespace MedziagosKartojimas
     {
         static void Main(string[] args)
         {
+            var a = new AKlase("mama");
+
+            Console.WriteLine($"NEW NAME: {a.NameMetodas()}");
+            Console.WriteLine($"NAME KODAS: {a.NameKodas(2)}");
+
+            ExitApp();
+        }
+
+        static void ExitApp()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit");
+            Console.ReadKey();
         }
     }
 }
