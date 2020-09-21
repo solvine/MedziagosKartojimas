@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MedziagosKartojimas
 {
-     class AKlase : BaseClass
+    class BKlase : BaseClass, IZodisKitaip
     {
-        public AKlase(string name) : base(name)
+        public BKlase(string name) : base(name)
         {
 
         }
@@ -18,7 +18,7 @@ namespace MedziagosKartojimas
 
             for (int i = 0; i < Name.Count(); i++)
             {
-                suma += (int)Name[i] * a;
+                suma += Name[i] - a;
             }
             return suma;
         }
@@ -38,9 +38,29 @@ namespace MedziagosKartojimas
                 {
                     name += Name[i];
                 }
-                
+
             }
             return name;
+        }
+
+        public string ZodisBeBalsiu()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ZodisBePriebalsiu()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ZodisSuPakeistomisBalsemis(char a)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ZodisSuPakeistomisPriebalsemis(int a)
+        {
+            throw new NotImplementedException();
         }
     }
 }
