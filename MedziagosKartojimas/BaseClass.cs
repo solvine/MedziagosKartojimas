@@ -14,5 +14,10 @@ namespace MedziagosKartojimas
         {
             Name = name;
         }
+
+        public abstract string NameMetodas();
+
+        public abstract int NameKodas(int a);
+
     }
 }
